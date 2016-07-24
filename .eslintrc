@@ -1,0 +1,43 @@
+{
+    "globals": {
+        "jQuery": true,
+        "$": true
+    },
+    "rules": {
+        "indent": [
+            2,
+            4
+        ],
+        "quotes": [
+            2,
+            "double"
+        ],
+        "linebreak-style": [
+            2,
+            "unix"
+        ],
+        "semi": [
+            2,
+            "never"
+        ],
+        "no-trailing-spaces": 2,
+        "eol-last": 2,
+        "no-unused-vars": 2,
+        "no-underscore_dangle": 0,
+        "no-alert": 2,
+        "no-lone-blocks": 2,
+        "no-implicit-globals": 2
+    },
+    "env": {
+        "es6": true,
+        "browser": true,
+        "node": true,
+        "jquery": true
+    },
+    "ecmaFeatures": {
+        "jsx": true
+    },
+    "plugins": [
+        "react"
+    ]
+}

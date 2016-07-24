@@ -1,0 +1,14 @@
+{
+    "rules": {
+        "no-trailing-spaces": 2,
+        "eol-last": 2,
+        "no-unused-vars": 2,
+        "no-underscore_dangle": 1,
+        "no-alert": 2,
+        "no-lone-blocks": 2
+    },
+    "globals": {
+        "jQuery": true,
+        "$": true
+    }
+}
