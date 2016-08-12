@@ -1,8 +1,11 @@
-$ = jQuery = require('jquery')
+window.$ = window.jQuery = require('jquery')
+// require('bootstrap')
 
-test = 1 // Global variable test
+// const React = require('react')
+// const Home = require('./components/homePage')
 
-const App = console.log('Hello world from Browserify')
+// React.render(<Home />, document.getElementById('app'))
+
+const App = console.log('Hello from Browserify')
 
 module.exports = App
-
