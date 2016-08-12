@@ -48,7 +48,6 @@ gulp.task('html', () => {
 
 gulp.task('js', () => {
     browserify(config.paths.mainJs)
-        .transform(reactify)
         .transform(babelify, {presets: ['es2015', 'react']})
         .bundle()
         .on('error', console.error.bind(console))
