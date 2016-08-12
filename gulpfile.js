@@ -4,6 +4,7 @@ const gulp = require("gulp")
 const connect = require("gulp-connect") // runs a web server
 const open = require("gulp-open") // opens a url
 const browserify = require("browserify") // Bundler
+const babelify = require("babelify") // Bundler
 const reactify = require("reactify") // transform JSX to JS
 const source = require("vinyl-source-stream") // text streams with gulp
 const concat = require("gulp-concat") // concatenates files
@@ -48,6 +49,7 @@ gulp.task("html", () => {
 gulp.task("js", () => {
     browserify(config.paths.mainJs)
         .transform(reactify)
+        .transform(babelify, {presets: ["es2015", "react"]})
         .bundle()
         .on("error", console.error.bind(console))
         .pipe(source("bundle.js"))
@@ -65,7 +67,7 @@ gulp.task("lint", () => {
     return gulp.src(config.paths.js)
         .pipe(lint({config: "eslint.config.json"}))
         .pipe(lint.format())
-        .pipe(eslint.failAfterError())
+        .pipe(lint.failAfterError())
 })
 
 gulp.task("watch", () => {
