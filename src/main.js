@@ -7,6 +7,7 @@ const ReactDOM = require('react-dom')
 // Components
 const Home = require('./components/homePage')
 const About = require('./components/about/aboutPage')
+const Authors = require('./components/authors/authorPage')
 const Header = require('./components/common/header')
 
 const App = React.createClass({
@@ -15,6 +16,7 @@ const App = React.createClass({
 
     switch (this.props.route) {
       case 'about': Child = About; break
+      case 'authors': Child = Authors; break
       default: Child = Home
     }
 
