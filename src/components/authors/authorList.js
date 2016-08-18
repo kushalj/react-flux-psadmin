@@ -13,6 +13,7 @@ const AuthorList = React.createClass({
       )
     }
 
+
     return (
       <div>
         <table className="table">
