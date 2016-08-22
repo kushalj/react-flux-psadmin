@@ -1,41 +1,12 @@
-window.$ = window.jQuery = require('jquery')
-// require('bootstrap')
+'use strict'
 
-const React = require('react')
-const ReactDOM = require('react-dom')
+import React from 'react'
+import { Router, browserHistory } from 'react-router'
+import { render } from 'react-dom'
 
-// Components
-const Home = require('./components/homePage')
-const About = require('./components/about/aboutPage')
-const Authors = require('./components/authors/authorPage')
-const Header = require('./components/common/header')
+import { routes } from './routes'
 
-const App = React.createClass({
-  render: function () {
-    let Child
-
-    switch (this.props.route) {
-      case 'about': Child = About; break
-      case 'authors': Child = Authors; break
-      default: Child = Home
-    }
-
-    return (
-      <div>
-        <Header />
-        <Child />
-      </div>
-    )
-
-  }
-})
-
-function render() {
-  let route = window.location.hash.substr(1)
-  ReactDOM.render(<App route={route} />, document.getElementById('app'))
-}
-
-window.addEventListener('hashchange', render)
-render()
-
+render(
+  <Router history={browserHistory} routes={routes} />, document.getElementById('app')
+)
 

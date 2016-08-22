@@ -1,8 +1,12 @@
 'use strict'
 
-const React = require('react')
+import React from 'react'
 
 const AuthorList = React.createClass({
+  propTypes: {
+    authors: React.PropTypes.array.isRequired
+  },
+
   render: function () {
     let createAuthorRow = function (author) {
       return (
@@ -12,7 +16,6 @@ const AuthorList = React.createClass({
         </tr>
       )
     }
-
 
     return (
       <div>

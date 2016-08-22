@@ -1,9 +1,9 @@
 'use strict'
 
-const React = require('react')
+import React from 'react'
 
-const Home = React.createClass({
-  render: function () {
+export default class Home extends React.Component {
+  render() {
     return (
       <div className='jumbotron'>
         <h1>Pluralsight Administration</h1>
@@ -11,6 +11,4 @@ const Home = React.createClass({
       </div>
     )
   }
-})
-
-module.exports = Home
+}

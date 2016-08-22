@@ -1,10 +1,10 @@
 'use strict'
 
-const React = require('react')
-const AuthorApi = require('../../api/authorApi')
-const AuthorList = require('./authorList')
+import React from 'react'
+const AuthorApi = require('../../api/authorApi').default
+const AuthorList = require('./authorList').default
 
-const Authors = React.createClass({
+const AuthorPage = React.createClass({
   getInitialState: function () {
     return {
       authors: []
@@ -26,5 +26,5 @@ const Authors = React.createClass({
   }
 })
 
-module.exports = Authors
+module.exports = AuthorPage
 

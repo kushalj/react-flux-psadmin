@@ -1,9 +1,9 @@
 'use strict'
 
-const React = require('react')
+import React from 'react'
 
-const Header = React.createClass({
-  render: function() {
+export default class Header extends React.Component{
+  render() {
     return (
       <nav className="navbar navbar-default">
         <div className="container-fluid">
@@ -19,6 +19,4 @@ const Header = React.createClass({
       </nav>
     )
   }
-})
-
-module.exports = Header
+}
