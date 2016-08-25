@@ -8,9 +8,9 @@ export default class Header extends React.Component{
     return (
       <nav className="navbar navbar-default">
         <div className="container-fluid">
-          <a href="/" className="navbar-brand">
+          <Link to="/" className="navbar-brand">
             <img src="images/pluralsight-logo.png" alt=""/>
-          </a>
+          </Link>
           <ul className="nav navbar-nav">
             <li><Link to="/">Home</Link></li>
             <li><Link to="/authors">Authors</Link></li>
