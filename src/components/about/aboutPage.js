@@ -1,8 +1,18 @@
 'use strict'
 
 import React from 'react'
+import { withRouter }  from 'react-router'
 
-export default class About extends React.Component{
+class About extends React.Component {
+  //the 'warning' on page entry moved to routes.js
+
+  componentDidMount() {
+    this.props.router.setRouteLeaveHook(this.props.route, () => {
+      if (!confirm('Are you sure you want to leave a page this exciting?'))
+        return 'You have unsaved information, are you sure you want to leave this page?'
+    })
+  }
+
   render() {
     return (
       <div>
@@ -21,3 +31,5 @@ export default class About extends React.Component{
     )
   }
 }
+
+export default withRouter(About)

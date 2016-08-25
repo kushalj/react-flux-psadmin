@@ -25,7 +25,7 @@
         "eol-last": 2,
         "no-unused-vars": 2,
         "no-underscore_dangle": 0,
-        "no-alert": 2,
+        "no-alert": 0,
         "no-lone-blocks": 2,
         "no-implicit-globals": 2
     },
