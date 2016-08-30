@@ -30,4 +30,3 @@ export default class AuthorPage extends React.Component {
 }
 
 module.exports = AuthorPage
-
