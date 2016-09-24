@@ -3,7 +3,7 @@
 import React, {Component} from 'react'
 
 class textInput extends Component {
-  propTypes() {
+  static propTypes() {
     name:  React.PropTypes.string.isRequired
     label: React.PropTypes.string.isRequired
     onChange: React.PropTypes.string.isRequired
@@ -27,10 +27,11 @@ class textInput extends Component {
             className="form-control"
             placeholder={this.props.placeholder}
             ref={this.props.name}
-            value={this.props.value}
+            value={this.props.value || ''}
             onChange={this.props.onChange}/>
           <div className="input">{this.props.error}</div>
         </div>
+        <br />
       </div>
     )
   }

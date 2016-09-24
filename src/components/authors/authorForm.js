@@ -20,7 +20,7 @@ class AuthorForm extends Component {
           value = {this.props.author.lastName}
           onChange = {this.props.onChange} />
 
-        <input type="submit" className="btn btn-default" value="Save" />
+        <input type="submit" className="btn btn-default" value="Save" onClick={this.props.onSave} />
       </form>
     )
   }
