@@ -24,7 +24,7 @@
         ],
         "no-trailing-spaces": 2,
         "eol-last": 2,
-        "no-unused-vars": 2,
+        "no-unused-vars": 1,
         "no-underscore_dangle": 0,
         "no-alert": 0,
         "no-lone-blocks": 2,
