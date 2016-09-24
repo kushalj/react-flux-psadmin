@@ -4,6 +4,14 @@ import React, {Component} from 'react'
 import Input from '../common/textInput'
 
 class AuthorForm extends Component {
+  static propTypes() {
+    author: React.PropTypes.object.isRequired
+    onSave: React.PropTypes.func.isRequired
+    onChange: React.PropTypes.func.isRequired
+    errors: React.PropTypes.object
+  }
+
+
   render() {
     return (
       <form>

@@ -3,19 +3,28 @@
 import React from 'react'
 import AuthorForm from './authorForm'
 import AuthorApi from '../../api/authorApi'
-import { hashHistory } from 'react-router'
+import { hashHistory, withRouter } from 'react-router'
 import toastr from 'toastr'
 
-export default class ManageAuthorPage extends React.Component {
+class ManageAuthorPage extends React.Component {
   constructor() {
     super()
     this.state = {
       author: { id: '', lastName: '', lastName: '' },
-      errors: {}
+      errors: {},
+      dirty: false
     }
   }
 
+  componentDidMount() {
+    this.props.router.setRouteLeaveHook(this.props.route, () => {
+      if (this.state.dirty && !confirm('Leave without saving?'))
+        return false
+    })
+  }
+
   setAuthorState = (event) => {
+    this.setState({ dirty: true })
     let changedAuthor = this.state
     let field = event.target.name
     let value = event.target.value
@@ -63,3 +72,5 @@ export default class ManageAuthorPage extends React.Component {
     )
   }
 }
+
+export default withRouter(ManageAuthorPage)
