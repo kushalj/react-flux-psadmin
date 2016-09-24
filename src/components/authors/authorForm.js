@@ -12,13 +12,15 @@ class AuthorForm extends Component {
           name = "firstName"
           label = "First Name"
           value = {this.props.author.firstName}
-          onChange = {this.props.onChange} />
+          onChange = {this.props.onChange}
+          error = {this.props.errors.firstName} />
 
         <Input
           name = "lastName"
           label = "Last Name"
           value = {this.props.author.lastName}
-          onChange = {this.props.onChange} />
+          onChange = {this.props.onChange}
+          error = {this.props.errors.lastName} />
 
         <input type="submit" className="btn btn-default" value="Save" onClick={this.props.onSave} />
       </form>
