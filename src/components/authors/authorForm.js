@@ -1,31 +1,24 @@
 'use strict'
 
 import React, {Component} from 'react'
+import Input from '../common/textInput'
 
 class AuthorForm extends Component {
   render() {
     return (
       <form>
         <h1>Manage Author</h1>
-        <label htmlFor="firstName">First Name</label>
-        <input type="text"
-          name="firstName"
-          className="form-control"
-          placeholder="First Name"
-          ref="firstName"
-          onChange={this.props.onChange}
-          value={this.props.author.firstName || ''} />
-        <br />
+        <Input
+          name = "firstName"
+          label = "First Name"
+          value = {this.props.author.firstName}
+          onChange = {this.props.onChange} />
 
-        <label htmlFor="lastName">Last Name</label>
-        <input type="text"
-          name="lastName"
-          className="form-control"
-          placeholder="Last Name"
-          ref="lastName"
-          onChange={this.props.onChange}
-          value={this.props.author.lastName || ''} />
-        <br />
+        <Input
+          name = "lastName"
+          label = "Last Name"
+          value = {this.props.author.lastName}
+          onChange = {this.props.onChange} />
 
         <input type="submit" className="btn btn-default" value="Save" />
       </form>
