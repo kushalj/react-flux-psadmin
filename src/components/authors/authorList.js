@@ -1,6 +1,7 @@
 'use strict'
 
 import React from 'react'
+import { Link } from 'react-router'
 
 const AuthorList = React.createClass({
   propTypes: {
@@ -11,7 +12,7 @@ const AuthorList = React.createClass({
     let createAuthorRow = function (author) {
       return (
         <tr key={author.id}>
-          <td><a href={'/#authors/' + author.id}>{author.id}</a></td>
+          <td><Link to={'/manageAuthor/' + author.id}>{author.id}</Link></td>
           <td>{author.firstName} {author.lastName}</td>
         </tr>
       )

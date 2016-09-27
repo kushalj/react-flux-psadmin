@@ -23,6 +23,7 @@ export const routes = (
     <IndexRoute component={Home} />
     <Route path="authors" component={Authors} />
     <Route path="addAuthor" component={ManageAuthorPage} />
+    <Route path="manageAuthor/:id" component={ManageAuthorPage} />
     <Route path="about" component={About} onEnter={aboutWarning} />
     <Redirect path="about-us" to="about" />
     <Redirect path="awthurs" to="authors" />
