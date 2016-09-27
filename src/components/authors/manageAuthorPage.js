@@ -16,6 +16,14 @@ class ManageAuthorPage extends React.Component {
     }
   }
 
+  componentWillMount() {
+    let authorId = this.props.params.id //from the path '/author:id''
+
+    if (authorId) {
+      this.setState({author: AuthorApi.getAuthorById(authorId)})
+    }
+  }
+
   componentDidMount() {
     this.props.router.setRouteLeaveHook(this.props.route, () => {
       if (this.state.dirty && !confirm('Leave without saving?'))
