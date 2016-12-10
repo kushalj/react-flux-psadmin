@@ -3,6 +3,7 @@
 // import { keyMirror } from 'react/lib/keyMirror'
 
 export default {
+  INIT: 'INITIALIZE',
   CREATE_AUTHOR: 'CREATE_AUTHOR',
-  INIT: 'INITIALIZE'
+  UPDATE_AUTHOR: 'UPDATE_AUTHOR'
 }

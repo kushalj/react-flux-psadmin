@@ -14,4 +14,13 @@ export default class AuthorActions {
       author: newAuthor
     })
   }
+
+  static updateAuthor(author) {
+    let updatedAuthor = AuthorApi.saveAuthor(author)
+
+    AppDispatcher.dispatch({
+      actionType: ActionTypes.UPDATE_AUTHOR,
+      author: updatedAuthor
+    })
+  }
 }

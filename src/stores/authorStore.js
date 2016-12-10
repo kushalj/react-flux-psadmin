@@ -36,9 +36,7 @@ AppDispatcher.register(function(action) {
       _authors = action.initialData.authors
       AuthorStore.emitChange()
       break
-      // FIXME
     case ActionTypes.CREATE_AUTHOR:
-      console.log(action.author)
       _authors.push(action.author)
       AuthorStore.emitChange()
       break
