@@ -3,19 +3,16 @@
 import React from 'react'
 import { Link } from 'react-router'
 
-import AuthorApi from '../../api/authorApi'
+import AuthorStore from '../../stores/authorStore'
+import AuthorActions from '../../actions/authorActions'
 import AuthorList from './authorList'
 
 export default class AuthorPage extends React.Component {
   constructor() {
     super()
     this.state = {
-      authors: []
+      authors: AuthorStore.getAllAuthors()
     }
-  }
-
-  componentDidMount() {
-    this.setState({ authors: AuthorApi.getAllAuthors() })
   }
 
   render() {

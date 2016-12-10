@@ -2,7 +2,8 @@
 
 import React from 'react'
 import AuthorForm from './authorForm'
-import AuthorApi from '../../api/authorApi'
+import AuthorActions from '../../actions/authorActions'
+import AuthorStore from '../../stores/authorStore'
 import { hashHistory, withRouter } from 'react-router'
 import toastr from 'toastr'
 
@@ -20,7 +21,7 @@ class ManageAuthorPage extends React.Component {
     let authorId = this.props.params.id //from the path '/author:id''
 
     if (authorId) {
-      this.setState({author: AuthorApi.getAuthorById(authorId)})
+      this.setState({author: AuthorStore.getAuthorById(authorId)})
     }
   }
 
@@ -33,7 +34,7 @@ class ManageAuthorPage extends React.Component {
 
   setAuthorState = (event) => {
     this.setState({ dirty: true })
-    let changedAuthor = this.state
+    let changedAuthor = this.state.author
     let field = event.target.name
     let value = event.target.value
     changedAuthor[field] = value
@@ -60,15 +61,18 @@ class ManageAuthorPage extends React.Component {
 
   saveAuthor = (event) => {
     event.preventDefault()
-    this.setState({ dirty: false })
 
     if (!this.authorFormIsValid()) {
       return
     }
 
-    AuthorApi.saveAuthor(this.state.author)
-    toastr.success('Author saved.')
-    hashHistory.push('/authors')
+    this.setState({ dirty: false }, () => {
+      AuthorActions.createAuthor(this.state.author)
+      toastr.success('Author saved.')
+      hashHistory.push('/authors')
+    })
+
+
   }
 
   render() {
