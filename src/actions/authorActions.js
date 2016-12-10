@@ -23,4 +23,13 @@ export default class AuthorActions {
       author: updatedAuthor
     })
   }
+
+  static deleteAuthor(id) {
+    AuthorApi.deleteAuthor(id)
+
+    AppDispatcher.dispatch({
+      actionType: ActionTypes.DELETE_AUTHOR,
+      id: id
+    })
+  }
 }

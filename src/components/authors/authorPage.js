@@ -4,7 +4,6 @@ import React from 'react'
 import { Link } from 'react-router'
 
 import AuthorStore from '../../stores/authorStore'
-import AuthorActions from '../../actions/authorActions'
 import AuthorList from './authorList'
 
 export default class AuthorPage extends React.Component {
@@ -13,6 +12,22 @@ export default class AuthorPage extends React.Component {
     this.state = {
       authors: AuthorStore.getAllAuthors()
     }
+    //ES6 constructors don't autobind 'this'
+    //https://github.com/goatslacker/alt/issues/283
+    this._onChange = this._onChange.bind(this)
+  }
+
+  componentWillMount() {
+    AuthorStore.addChangeListener(this._onChange)
+  }
+
+  // clean up when unmounted
+  componentWillUnmount() {
+    AuthorStore.removeChangeListener(this._onChange)
+  }
+
+  _onChange() {
+    this.setState({ authors: AuthorStore.getAllAuthors() })
   }
 
   render() {
